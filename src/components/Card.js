@@ -60,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const validationSchema = yup.object().shape({
-  website: yup.string().required('Campo obrigatório').url('URL inválida'),
+  website: yup.string().required('Required field').url('Invalid/Incomplete link'),
 })
 
 const Card = ({
@@ -92,9 +92,9 @@ const Card = ({
             <TextField
               size="small"
               fullWidth
-              label="Enter the url"
+              label="Insert the link"
               variant="filled"
-              placeholder="https://github.com"
+              placeholder="https://github.com/gugamacedo"
               onChange={handleChange}
               name="website"
               value={values.website}
