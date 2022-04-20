@@ -11,7 +11,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <React.Fragment>
       <Head>
-        <title>QrCode Generator</title>
+        <title>QrCoder</title>
         <meta name="description" content="Generate a qrcode from some website" />
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
         <link rel="icon" href="/favicon.svg" />

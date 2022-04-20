@@ -13,14 +13,21 @@ const Toasty = ({ open, message, severity, onClose }) => {
   return (
     <Snackbar
       anchorOrigin={{
-        vertical: 'top',
+        vertical: 'bottom',
         horizontal: 'left',
       }}
       open={open}
       autoHideDuration={3000}
       onClose={handleClose}
     >
-      <Alert elevation={6} variant="filled" severity={severity} sx={{ backgroundColor: 'text.secondary' }}>
+      <Alert elevation={6} variant="filled" severity={severity} sx={{ 
+          backgroundColor: 'text.secondary',
+          color: 'background.default',
+          
+          '@media (min-width: 1900px)': {
+            fontSize: '1.3rem',
+          },
+        }}>
         {message}
       </Alert>
     </Snackbar>
