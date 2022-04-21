@@ -111,7 +111,7 @@ const Home = () => {
   return (
     <Container maxWidth="xl" className={classes.container}>
       <Typography variant="h4" component="h1" className={classes.title}>
-        Welcome to <span>QrCoder</span>
+        Welcome to <span>React QrCode</span>
       </Typography>
 
       <Card
