@@ -12,9 +12,12 @@ function MyApp({ Component, pageProps }) {
     <React.Fragment>
       <Head>
         <title>React QrCode</title>
-        <meta name="description" content="Generate a custom QrCode!" />
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-        <meta property="og:image" content="/favicon.svg" />
+        <meta name="title" content="React QrCode" />
+        <meta name="description" content="Generate a custom QrCode!" />
+        <meta name="image" content="" />
+        <meta name="image" content="/favicon.svg" />
+        <meta name="url" content="https://react-qr-code.vercel.app" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
       <ThemeProvider theme={theme}>
