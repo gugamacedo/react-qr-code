@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="title" content="React QrCode" />
         <meta name="description" content="Generate a custom QrCode!" />
         <meta name="image" content="" />
-        <meta property="og:image" content="https://raw.githubusercontent.com/gugamacedo/react-qr-code/cffbd6e8cbb45df3de1cd25493c35d28546fbebc/public/favicon.svg"></meta>
+        <meta property="og:image" content="https://raw.githubusercontent.com/gugamacedo/gugamacedo.github.io/main/img/react-qr-code.png" />
         <meta name="url" content="https://react-qr-code.vercel.app" />
         <link rel="icon" href="/favicon.svg" />
       </Head>
