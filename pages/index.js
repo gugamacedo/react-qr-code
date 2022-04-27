@@ -12,9 +12,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: theme.palette.background.paper,
-    padding: '30px 0 20px',
+    padding: '30px 0',
     width: '70%',
     height: '100%',
+    minHeight: '100vh',
     
     '& span': {
       color: theme.palette.text.secondary,
@@ -23,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   footer: {
-    marginTop: '60px',
+    marginTop: '70px',
     fontSize: '0.8rem',
 
     '& a': {
@@ -80,8 +81,6 @@ const Home = () => {
         displayBgColorPicker: !colorPicker.displayBgColorPicker,
       }
     ) 
-    console.log(colorPicker)
-
   } 
 
   const changeColorPicker = (color) => setColorPicker({ ...colorPicker, color: color.hex }) 

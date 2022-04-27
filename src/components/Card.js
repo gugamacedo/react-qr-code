@@ -18,10 +18,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     gap: '30px',
-
-    '& button': {
-      marginTop: '20px'
-    }
   },
   
   [theme.breakpoints.up(1899)] : {
@@ -31,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
       gap: '30px',
   
       '& button': {
-        marginTop: '20px',
         fontSize: '1.2rem',
       },
 
