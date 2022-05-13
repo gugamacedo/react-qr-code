@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react'
 
-import { Container, Typography } from '@mui/material'
 import { makeStyles } from '@mui/styles'
 
-import Card from '../src/components/Card'
-import Toasty from '../src/components/Toasty'
+import Card from './components/Card'
+import Toasty from './components/Toasty'
 
 const useStyles = makeStyles((theme) => ({
   container: {
+    backgroundColor: theme.palette.background.paper,
     display: 'flex',
+    margin: '0 auto',
     alignItems: 'center',
     flexDirection: 'column',
-    backgroundColor: theme.palette.background.paper,
     padding: '30px 0',
     width: '70%',
     height: '100%',
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   footer: {
-    marginTop: '70px',
+    marginTop: '65px',
     fontSize: '0.8rem',
 
     '& a': {
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     footer: {
-      fontSize: '1rem'
+      fontSize: '1.2rem'
     },
   },  
 
@@ -62,11 +62,11 @@ const useStyles = makeStyles((theme) => ({
   }
 }))
 
-const Home = () => {
+function App() {
   const classes = useStyles()
 
   const [colorPicker, setColorPicker] = useState({displayColorPicker: false, displayBgColorPicker: false, bgColor: '#424242', color: '#00ff88'})
-  const [image, setImage] = useState('/favicon.svg')
+  const [isImage, setImage] = useState({image: '/favicon.svg', download: '', link: ''})
   const [loading, setLoading] = useState(false)
   const [openToasty, setOpenToasty] = useState(false)
 
@@ -88,33 +88,51 @@ const Home = () => {
   const changeBgColorPicker = (color) => setColorPicker({ ...colorPicker, bgColor: color.hex }) 
 
   useEffect(() => {
-    setImage(image)
-  }, [image])
+    setImage(isImage)
+  }, [isImage])
 
-  const onSubmit = (values) => {
+  const toDataURL = url => fetch(url)
+  .then(response => response.blob())
+  .then(blob => new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onloadend = () => resolve(reader.result)
+    reader.onerror = reject
+    reader.readAsDataURL(blob)
+  }))
+
+
+
+  const onSubmit = async (values) => {
     setLoading(true)
 
-    const { bgColor, color } = colorPicker
+    let { bgColor, color } = colorPicker
     bgColor = bgColor.replace('#', '')
     color = color.replace('#', '')
 
     const newImage = `https://api.qrserver.com/v1/create-qr-code/?size=400x400&bgcolor=${bgColor}&color=${color}&data=${values.website}`
 
+    const newLink = await toDataURL(newImage).then(dataUrl => dataUrl)
+
     setTimeout(() => {
-      setImage(newImage)
+      setImage({
+        ...isImage,
+        image: newImage,
+        download: newLink,
+        link: values.website
+      })
       setLoading(false)
       setOpenToasty(true)
     }, 2000)
   }
 
   return (
-    <Container maxWidth="xl" className={classes.container}>
-      <Typography variant="h4" component="h1" className={classes.title}>
+    <div className={classes.container}>
+      <h1 className={classes.title}>
         Welcome to <span>React QrCode</span>
-      </Typography>
+      </h1>
 
       <Card
-        image={image}
+        isImage={isImage}
         onSubmit={onSubmit}
         loading={loading}
         colorPicker={colorPicker}
@@ -124,7 +142,8 @@ const Home = () => {
       />
 
       <footer className={classes.footer}>
-        Developed by <a href='https://github.com/gugamacedo'>Guga Macedo</a>
+        Developed by
+        <a href='https://github.com/gugamacedo' target='_blank' rel="noreferrer"> Guga Macedo</a>
       </footer>
 
       <Toasty
@@ -133,8 +152,8 @@ const Home = () => {
         severity={'success'}
         message={'Generating QrCode successfully!'}
       />
-    </Container>
+    </div>
   )
 }
 
-export default Home
+export default App
