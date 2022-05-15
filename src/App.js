@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
     margin: '0 auto',
     alignItems: 'center',
     flexDirection: 'column',
-    padding: '30px 0',
+    padding: '30px 0 20px',
     width: '70%',
     height: '100%',
     minHeight: '100vh',
@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   footer: {
-    marginTop: '65px',
+    marginTop: '70px',
     fontSize: '0.8rem',
 
     '& a': {
@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '1.3rem',
     },
     container: {
-      width: '80%',
+      width: '90%',
     }   
   }
 }))
@@ -65,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
 function App() {
   const classes = useStyles()
 
-  const [colorPicker, setColorPicker] = useState({displayColorPicker: false, displayBgColorPicker: false, bgColor: '#424242', color: '#00ff88'})
+  const [colorPicker, setColorPicker] = useState({displayColorPicker: false, displayBgColorPicker: false, bgColor: '#111111', color: '#ff8c00'})
   const [isImage, setImage] = useState({image: '/favicon.svg', download: '', link: ''})
   const [loading, setLoading] = useState(false)
   const [openToasty, setOpenToasty] = useState(false)
