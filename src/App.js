@@ -66,7 +66,7 @@ function App() {
   const classes = useStyles()
 
   const [colorPicker, setColorPicker] = useState({displayColorPicker: false, displayBgColorPicker: false, bgColor: '#111111', color: '#ff8c00'})
-  const [isImage, setImage] = useState({image: '/favicon.svg', download: '', link: ''})
+  const [isImage, setImage] = useState({image: "https://api.qrserver.com/v1/create-qr-code/?size=400x400&bgcolor=111111&color=ff8c00&data=https://react-qr-code.vercel.app", download: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAGQAQMAAAC6caSPAAAABlBMVEURERH/jADxZgWTAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABU0lEQVR4nO3Yy5KDMAxEUfPl/Lk9SUTbLU/mkS26qoKAS8e7LuS09nmdw+u58rzH06OO0R+XV4dAbkNWEKJZ8GruL9ZsCwikNFG8ZnOw44rUilmHQCBOxnx/tShWEAjkl4hNAIFAElEpXgb7RZpxCKQw8bLPkkY3xWvMTSCQsuR7jWFx+l9BIEXImeLlvxaqwy4IpDDJg1u821s0qRUCKU7OFC1tcTV4yNYdAilM1Jh/Z6SizVcgkMIknpWmFbSt9FcBBHJHMlPh3xjNY37kgUCKEzWukM1IaS7zEQ4CKU9WtFKrQGwDgZQnWt/QfuYPBoGUJXuNa4uWz/r51A+BFCXn8PIxbsZqXbEGgRQmb+LlH6QcsX3qg0DKkRyveG75wONxg0AgiUzU7a64QSCQdxHzc5HoH6mEQO5OVGKpUfH6eeqDQAoRL4+bNfk4B4EUJp/XF9q6oyBQjCG+AAAAAElFTkSuQmCC", link: "https://react-qr-code.vercel.app"})
   const [loading, setLoading] = useState(false)
   const [openToasty, setOpenToasty] = useState(false)
 
@@ -115,7 +115,6 @@ function App() {
 
     setTimeout(() => {
       setImage({
-        ...isImage,
         image: newImage,
         download: newLink,
         link: values.website

@@ -2,6 +2,6 @@
 
 - Generate a custom QrCode! 
 - Tech stack: ![React](https://img.shields.io/badge/React-ff8c00.svg?style=for-the-badge&logo=react&logoColor=white) ![MUI](https://img.shields.io/badge/Material.UI-ff8c00.svg?style=for-the-badge&logo=mui&logoColor=white)
-- **[Use it now](https://react-qr-code.vercel.app/)**
+- **[Use it now](https://react-qr-code.vercel.app)**
  
 ![Page Layout](https://raw.githubusercontent.com/gugamacedo/gugamacedo-vercel/main/public/react-qr-code.png)

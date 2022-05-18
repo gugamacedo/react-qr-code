@@ -155,20 +155,19 @@ const Card = ({
                 )}
               </Box>
 
-              {isImage.download && (
-                <a href={isImage.download} download={`${isImage.link}.png`}>
-                  <DownloadForOfflineIcon
-                    fontSize="large"
-                    color="primary"
-                    sx={{
-                      '@media (min-width: 1900px)': {
-                        height: '1.3em',
-                        width: '1.3em',
-                      },
-                    }}
-                  />
-                </a>
-              )}
+              <a href={isImage.download} download={`${isImage.link}.png`}>
+                <DownloadForOfflineIcon
+                  fontSize="large"
+                  color="primary"
+                  sx={{
+                    '@media (min-width: 1900px)': {
+                      height: '1.3em',
+                      width: '1.3em',
+                    },
+                  }}
+                />
+              </a>
+              
             </Box>
           </form>
         )}
